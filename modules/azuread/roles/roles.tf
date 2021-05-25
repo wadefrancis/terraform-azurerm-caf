@@ -24,7 +24,7 @@ resource "null_resource" "set_azure_ad_roles" {
     command     = format("%s/scripts/set_ad_role.sh", path.module)
     when        = destroy
     interpreter = ["/bin/bash"]
-    on_failure  = fail
+    on_failure  = continue
 
     environment = {
       METHOD                      = "DELETE"
